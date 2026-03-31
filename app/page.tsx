@@ -1,65 +1,154 @@
-import Image from "next/image";
+import React from 'react';
+import { Mail, Phone, MapPin, Briefcase, GraduationCap, User } from 'lucide-react';
 
-export default function Home() {
+const GithubIcon = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.2 5.2 0 0 0-1.39-3.6 5.1 5.1 0 0 0-.13-3.55s-1.14-.36-3.74 1.4a12.8 12.8 0 0 0-6.8 0c-2.6-1.76-3.74-1.4-3.74-1.4a5.1 5.1 0 0 0-.13 3.55 5.2 5.2 0 0 0-1.39 3.6c0 5.22 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4" />
+    <path d="M9 19c-5 1.5-5-2.5-7-3" />
+  </svg>
+);
+
+const LinkedinIcon = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+export default function CVPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 py-12 px-4 sm:px-6 lg:px-8 font-sans selection:bg-blue-200 dark:selection:bg-blue-900 transition-colors duration-300">
+      <div className="max-w-5xl mx-auto bg-white dark:bg-neutral-900 shadow-xl rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 transition-all duration-300 hover:shadow-2xl">
+        <div className="md:flex">
+          {/* Left Sidebar */}
+          <div className="md:w-1/3 bg-neutral-100 dark:bg-neutral-900/50 p-8 border-r border-neutral-200 dark:border-neutral-800 flex flex-col items-center md:items-start text-center md:text-left transition-colors duration-300">
+            <div className="w-40 h-40 rounded-full bg-neutral-300 dark:bg-neutral-700 mb-6 flex items-center justify-center overflow-hidden border-4 border-white dark:border-neutral-800 shadow-sm relative group">
+                <User size={64} className="text-neutral-400 group-hover:text-neutral-500 transition-colors duration-300" strokeWidth={1.5} />
+                {/* Tip: Add an <img> tag here to include your own profile picture! Example: */}
+                {/* <img src="/profile.jpg" alt="Profile" className="w-full h-full object-cover" /> */}
+            </div>
+            
+            <h1 className="text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-white mb-2">John Doe</h1>
+            <h2 className="text-lg font-medium tracking-wide text-blue-600 dark:text-blue-400 mb-6 uppercase">Full Stack Developer</h2>
+            
+            <div className="w-full mb-8">
+              <h3 className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-4 border-b border-neutral-200 dark:border-neutral-800 pb-2">Contact</h3>
+              <ul className="space-y-4 text-sm text-neutral-600 dark:text-neutral-300">
+                <li className="flex items-center gap-3">
+                  <Mail size={18} className="text-blue-600 dark:text-blue-400 shrink-0" />
+                  <a href="mailto:hello@example.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">hello@example.com</a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Phone size={18} className="text-blue-600 dark:text-blue-400 shrink-0" />
+                  <a href="tel:+1234567890" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">+1 (234) 567-890</a>
+                </li>
+                <li className="flex items-center gap-3">
+                  <MapPin size={18} className="text-blue-600 dark:text-blue-400 shrink-0" />
+                  <span>San Francisco, CA</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="w-full mb-8">
+              <h3 className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-4 border-b border-neutral-200 dark:border-neutral-800 pb-2">Social</h3>
+              <ul className="space-y-4 text-sm text-neutral-600 dark:text-neutral-300">
+                <li className="flex items-center gap-3 group">
+                  <GithubIcon size={18} className="text-neutral-900 dark:text-neutral-100 shrink-0 group-hover:scale-110 transition-transform" />
+                  <a href="https://github.com/johndoe" target="_blank" rel="noreferrer" className="hover:text-neutral-900 dark:hover:text-white transition-colors">github.com/johndoe</a>
+                </li>
+                <li className="flex items-center gap-3 group">
+                  <LinkedinIcon size={18} className="text-blue-600 dark:text-blue-500 shrink-0 group-hover:scale-110 transition-transform" />
+                  <a href="https://linkedin.com/in/johndoe" target="_blank" rel="noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">linkedin.com/in/johndoe</a>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="w-full">
+              <h3 className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-4 border-b border-neutral-200 dark:border-neutral-800 pb-2">Skills</h3>
+              <div className="flex flex-wrap gap-2">
+                {['JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Tailwind', 'Git', 'SQL'].map((skill) => (
+                  <span key={skill} className="px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-medium rounded-md shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all cursor-default">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Content */}
+          <div className="md:w-2/3 p-8 lg:p-12 transition-colors duration-300">
+            <section className="mb-10 group">
+              <div className="flex items-center gap-3 mb-4">
+                <User className="text-blue-600 dark:text-blue-400 shrink-0 group-hover:scale-110 transition-transform" size={24} />
+                <h3 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">Profile</h3>
+              </div>
+              <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed text-[15px]">
+                Passionate and detail-oriented Full Stack Developer with 5+ years of experience building scalable web applications. 
+                Adept at solving complex problems and collaborating with cross-functional teams to deliver high-quality software solutions. 
+                Always eager to learn new technologies and improve existing skills.
+              </p>
+            </section>
+
+            <section className="mb-10 group">
+              <div className="flex items-center gap-3 mb-6">
+                <Briefcase className="text-blue-600 dark:text-blue-400 shrink-0 group-hover:scale-110 transition-transform" size={24} />
+                <h3 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">Experience</h3>
+              </div>
+              
+              <div className="space-y-8">
+                {/* Job 1 */}
+                <div className="relative pl-6 border-l border-neutral-200 dark:border-neutral-800 hover:border-blue-300 dark:hover:border-blue-700 transition-colors duration-300">
+                  <span className="absolute -left-[5px] top-1.5 w-3 h-3 rounded-full bg-blue-600 dark:bg-blue-400 border-[3px] border-white dark:border-neutral-900 ring-2 ring-neutral-100 dark:ring-neutral-800 shadow-sm"></span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                    <h4 className="text-lg font-bold text-neutral-900 dark:text-white">Senior Frontend Engineer</h4>
+                    <span className="text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded-full inline-block mt-1 sm:mt-0">2021 - Present</span>
+                  </div>
+                  <h5 className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-3 uppercase tracking-wide">Tech Innovators Inc.</h5>
+                  <ul className="list-disc list-inside text-neutral-600 dark:text-neutral-300 space-y-1.5 text-[15px] leading-relaxed">
+                    <li>Lead the migration of a legacy enterprise app to Next.js, improving page load speeds by 40%.</li>
+                    <li>Mentored a team of 4 junior developers and established code review best practices.</li>
+                    <li>Integrated real-time websocket features scaling to 10k+ concurrent users.</li>
+                  </ul>
+                </div>
+
+                {/* Job 2 */}
+                <div className="relative pl-6 border-l border-neutral-200 dark:border-neutral-800 hover:border-blue-300 dark:hover:border-blue-700 transition-colors duration-300">
+                  <span className="absolute -left-[5px] top-1.5 w-3 h-3 rounded-full bg-neutral-400 dark:bg-neutral-600 border-[3px] border-white dark:border-neutral-900 ring-2 ring-neutral-100 dark:ring-neutral-800 shadow-sm"></span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                    <h4 className="text-lg font-bold text-neutral-900 dark:text-white">Web Developer</h4>
+                    <span className="text-sm font-semibold text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded-full inline-block mt-1 sm:mt-0">2018 - 2021</span>
+                  </div>
+                  <h5 className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-3 uppercase tracking-wide">Creative Agency Digital</h5>
+                  <ul className="list-disc list-inside text-neutral-600 dark:text-neutral-300 space-y-1.5 text-[15px] leading-relaxed">
+                    <li>Built completely bespoke, responsive websites for over 20 clients using React.</li>
+                    <li>Collaborated closely with the UI/UX design team to implement pixel-perfect designs.</li>
+                    <li>Managed CI/CD pipelines and deployment processes.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section className="group">
+              <div className="flex items-center gap-3 mb-6">
+                <GraduationCap className="text-blue-600 dark:text-blue-400 shrink-0 group-hover:scale-110 transition-transform" size={24} />
+                <h3 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">Education</h3>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="relative pl-6 border-l border-neutral-200 dark:border-neutral-800 hover:border-blue-300 dark:hover:border-blue-700 transition-colors duration-300">
+                  <span className="absolute -left-[5px] top-1.5 w-3 h-3 rounded-full bg-neutral-400 dark:bg-neutral-600 border-[3px] border-white dark:border-neutral-900 ring-2 ring-neutral-100 dark:ring-neutral-800 shadow-sm"></span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                    <h4 className="text-lg font-bold text-neutral-900 dark:text-white">B.S. in Computer Science</h4>
+                    <span className="text-sm font-semibold text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded-full inline-block mt-1 sm:mt-0">2014 - 2018</span>
+                  </div>
+                  <h5 className="text-sm font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">University of Technology</h5>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }
